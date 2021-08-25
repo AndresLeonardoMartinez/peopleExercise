@@ -35,7 +35,6 @@ class DetailsViewController: UIViewController {
 		table.translatesAutoresizingMaskIntoConstraints = false
 		table.register(UINib(nibName: DetailsTableViewCell.id, bundle: nil), forCellReuseIdentifier: DetailsTableViewCell.id)
 		table.tableHeaderView = avatar
-		table.dataSource = self
 		table.separatorStyle = .none
 	}
 
@@ -53,23 +52,6 @@ class DetailsViewController: UIViewController {
 		avatar.loadImageUsingCache(urlString: person?.picture?.large ?? "") { (_) in }
 	}
 
-
-}
-
-extension DetailsViewController: UITableViewDataSource {
-	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return presenter?.numberOfRows() ?? 0
-	}
-
-	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		
-		guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailsTableViewCell.id, for: indexPath)
-			as? DetailsTableViewCell else {
-			return UITableViewCell()
-		}
-		presenter?.prepare(cell, row: indexPath.row)
-		return cell
-	}
 
 }
 
