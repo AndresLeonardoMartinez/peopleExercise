@@ -21,7 +21,7 @@ class PersonTableViewCell: UITableViewCell {
 		avatarImageView.layer.cornerRadius = 10
     }
 
-	func configure(image: String?, name: String, email: String, location: String) {
+	func configure(image: String?, name: String?, email: String?, location: String?) {
 		if let image = image {
 			self.avatarImageView.loadImageUsingCache(urlString: image) { (_) in }
 		}

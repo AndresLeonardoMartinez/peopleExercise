@@ -21,8 +21,6 @@ class DetailsPresenter: DetailsPresenterProtocol {
 			case name = 0
 			case email
 			case location
-			case gender
-			case cellphone
 			case total
 	}
 	private var person: Person?
@@ -42,20 +40,14 @@ class DetailsPresenter: DetailsPresenterProtocol {
 
 		switch index {
 		case .name:
-			let name = "\(person?.name?.first ?? "") \(person?.name?.last ?? "")"
-			cell.configure(icon: "name", text: name)
+			let name = person?.name
+			cell.configure(icon: "name", text: name ?? "")
 		case .email:
-			let email = person?.email ?? "No email"
-			cell.configure(icon: "email", text: email)
+			let email = person?.email
+			cell.configure(icon: "email", text: email ?? "")
 		case .location:
-			let location = "\(person?.location?.city ?? ""), \(person?.location?.country ?? "")"
-			cell.configure(icon: "location", text: location)
-		case .gender:
-			let gender = "\(person?.gender ?? "")"
-			cell.configure(icon: "gender", text: gender)
-		case .cellphone:
-			let cellphone = "\(person?.cell ?? "")"
-			cell.configure(icon: "cellphone", text: cellphone)
+            let location = person?.location
+			cell.configure(icon: "location", text: location ?? "")
 		default:
 			return
 		}

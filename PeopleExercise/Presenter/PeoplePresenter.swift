@@ -21,11 +21,7 @@ class PeoplePresenter: PeoplePresenterProtocol {
 
 	func setup() {
 		self.view.showLoadingView()
-		adapter.getPeople { [weak self] (data) in
-			self?.people = data
-			self?.view.hideLoadingView()
-			self?.view.reloadView()
-		}
+		//adpter.getPeople
 	}
 
 	func numberOfRows() -> Int {
@@ -36,10 +32,10 @@ class PeoplePresenter: PeoplePresenterProtocol {
 		guard let person = people?[indexPath.row] else {
 			return
 		}
-		cell.configure(image: person.picture?.thumbnail,
-					   name: "\(person.name?.first ?? "") \(person.name?.last ?? "")",
-					   email: person.email ?? "No email",
-					   location: "\(person.location?.city ?? ""), \(person.location?.country ?? "")")
+		cell.configure(image: person.picture,
+					   name: person.name,
+					   email: person.email,
+					   location: person.location)
 
 	}
 

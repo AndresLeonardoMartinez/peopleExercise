@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		524F756D26D6D68B00AA6773 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524F756C26D6D68B00AA6773 /* Person.swift */; };
 		541487F423CE24B0005A4C3B /* PeoplePresenterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541487F323CE24B0005A4C3B /* PeoplePresenterFactory.swift */; };
 		541487FA23CE3F0C005A4C3B /* DetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541487F823CE3F0C005A4C3B /* DetailsTableViewCell.swift */; };
 		541487FB23CE3F0C005A4C3B /* DetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 541487F923CE3F0C005A4C3B /* DetailsTableViewCell.xib */; };
@@ -21,8 +22,6 @@
 		5435067123C9353500CC8D21 /* PeoplePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5435067023C9353500CC8D21 /* PeoplePresenter.swift */; };
 		5435067323C9353D00CC8D21 /* PeopleAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5435067223C9353D00CC8D21 /* PeopleAdapter.swift */; };
 		5435067623C9359300CC8D21 /* PeopleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5435067523C9359300CC8D21 /* PeopleTableViewController.swift */; };
-		5435067B23C9360600CC8D21 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5435067A23C9360600CC8D21 /* NetworkingManager.swift */; };
-		5435067D23C9367400CC8D21 /* PeopleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5435067C23C9367400CC8D21 /* PeopleResponse.swift */; };
 		5435068023C958F900CC8D21 /* PersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5435067E23C958F900CC8D21 /* PersonTableViewCell.swift */; };
 		5435068123C958F900CC8D21 /* PersonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5435067F23C958F900CC8D21 /* PersonTableViewCell.xib */; };
 		5435068723CBEC5100CC8D21 /* UIImageView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5435068623CBEC5100CC8D21 /* UIImageView+Utils.swift */; };
@@ -40,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		524F756C26D6D68B00AA6773 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		541487F323CE24B0005A4C3B /* PeoplePresenterFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeoplePresenterFactory.swift; sourceTree = "<group>"; };
 		541487F823CE3F0C005A4C3B /* DetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTableViewCell.swift; sourceTree = "<group>"; };
 		541487F923CE3F0C005A4C3B /* DetailsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsTableViewCell.xib; sourceTree = "<group>"; };
@@ -58,8 +58,6 @@
 		5435067023C9353500CC8D21 /* PeoplePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeoplePresenter.swift; sourceTree = "<group>"; };
 		5435067223C9353D00CC8D21 /* PeopleAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleAdapter.swift; sourceTree = "<group>"; };
 		5435067523C9359300CC8D21 /* PeopleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleTableViewController.swift; sourceTree = "<group>"; };
-		5435067A23C9360600CC8D21 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
-		5435067C23C9367400CC8D21 /* PeopleResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleResponse.swift; sourceTree = "<group>"; };
 		5435067E23C958F900CC8D21 /* PersonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonTableViewCell.swift; sourceTree = "<group>"; };
 		5435067F23C958F900CC8D21 /* PersonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonTableViewCell.xib; sourceTree = "<group>"; };
 		5435068623CBEC5100CC8D21 /* UIImageView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Utils.swift"; sourceTree = "<group>"; };
@@ -188,7 +186,6 @@
 		5435067723C935DB00CC8D21 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				5435067923C935EE00CC8D21 /* Manager */,
 				5435067823C935E900CC8D21 /* Model */,
 			);
 			path = Networking;
@@ -197,17 +194,9 @@
 		5435067823C935E900CC8D21 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5435067C23C9367400CC8D21 /* PeopleResponse.swift */,
+				524F756C26D6D68B00AA6773 /* Person.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		5435067923C935EE00CC8D21 /* Manager */ = {
-			isa = PBXGroup;
-			children = (
-				5435067A23C9360600CC8D21 /* NetworkingManager.swift */,
-			);
-			path = Manager;
 			sourceTree = "<group>";
 		};
 		5435068523CBEC1E00CC8D21 /* Extensions */ = {
@@ -330,10 +319,9 @@
 				541487FA23CE3F0C005A4C3B /* DetailsTableViewCell.swift in Sources */,
 				541487F423CE24B0005A4C3B /* PeoplePresenterFactory.swift in Sources */,
 				541487FF23CE51C4005A4C3B /* DetailsPresenterFactory.swift in Sources */,
-				5435067D23C9367400CC8D21 /* PeopleResponse.swift in Sources */,
 				541487FD23CE5028005A4C3B /* DetailsPresenter.swift in Sources */,
+				524F756D26D6D68B00AA6773 /* Person.swift in Sources */,
 				5435067123C9353500CC8D21 /* PeoplePresenter.swift in Sources */,
-				5435067B23C9360600CC8D21 /* NetworkingManager.swift in Sources */,
 				544E0AEB23CBF06F007A6797 /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

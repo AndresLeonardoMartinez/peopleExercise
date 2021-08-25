@@ -12,7 +12,7 @@ class PeoplePresenterFactory {
 	let presenter: PeoplePresenterProtocol
 
 	init(_ view: PeopleViewProtocol) {
-		let adapter = PeopleAdapter(networkingManager: NetworkingManager())
+		let adapter = PeopleAdapter()
 		presenter = PeoplePresenter(adapter, view: view)
 	}
 }

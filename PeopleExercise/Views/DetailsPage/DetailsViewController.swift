@@ -50,7 +50,7 @@ class DetailsViewController: UIViewController {
 	}
 
 	func loadTableHeaderImage() {
-		avatar.loadImageUsingCache(urlString: person?.picture?.large ?? "") { (_) in }
+		avatar.loadImageUsingCache(urlString: person?.picture ?? "") { (_) in }
 	}
 
 
