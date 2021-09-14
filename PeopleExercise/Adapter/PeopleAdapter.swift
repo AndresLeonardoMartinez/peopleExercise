@@ -7,9 +7,13 @@
 //
 
 import Foundation
+import Combine
+
 protocol PeopleAdapterProtocol {
 
 	func getPeople(completionHandler: @escaping (_ people: [Person]?) -> Void)
+    
+    func getPeople() -> AnyPublisher<People, NetworkError>
 }
 
 class PeopleAdapter: PeopleAdapterProtocol {
@@ -30,6 +34,13 @@ class PeopleAdapter: PeopleAdapterProtocol {
 			completionHandler(data?.results)}
 
 		)
-		
 	}
+    
+    func getPeople() -> AnyPublisher<People, NetworkError> {
+        let amount = 30
+        var request = URLRequest(url: URL(string: "https://randomuser.me/api/?results=\(amount)")!)
+        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        return networkingManager.get(request)
+    }
+
 }

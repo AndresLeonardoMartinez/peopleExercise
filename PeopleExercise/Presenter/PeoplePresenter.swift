@@ -7,12 +7,15 @@
 //
 
 import Foundation
+import Combine
 
 class PeoplePresenter: PeoplePresenterProtocol {
 
 	private var people: [Person]?
 	private var adapter: PeopleAdapterProtocol
 	private var view: PeopleViewProtocol
+    
+    var observers: [AnyCancellable] = []
 
 	init(_ adapter: PeopleAdapterProtocol, view: PeopleViewProtocol) {
 		self.adapter = adapter
@@ -21,11 +24,19 @@ class PeoplePresenter: PeoplePresenterProtocol {
 
 	func setup() {
 		self.view.showLoadingView()
-		adapter.getPeople { [weak self] (data) in
-			self?.people = data
-			self?.view.hideLoadingView()
-			self?.view.reloadView()
-		}
+        adapter.getPeople()
+            .sink { completion in
+                switch completion {
+                case .finished:
+                    print("finished")
+                case .failure(let error):
+                    print(error)
+                }
+            } receiveValue: { [weak self] people in
+                self?.people = people.results
+                self?.view.reloadView()
+                self?.view.hideLoadingView()
+            }.store(in: &observers)
 	}
 
 	func numberOfRows() -> Int {
@@ -53,7 +64,7 @@ class PeoplePresenter: PeoplePresenterProtocol {
 
 protocol PeoplePresenterProtocol {
 
-	func setup()
+    func setup()
 	func numberOfRows() -> Int
 	func prepare(_ cell: PersonTableViewCell, indexPath: IndexPath)
 	func presentDetails(of row: Int) -> Person?
